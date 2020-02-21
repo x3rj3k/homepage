@@ -8,16 +8,17 @@ body{
 }
 .home{
     min-height: 100vh;
-    background-image: url("2.jpg");
+    background-image: url("1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 
 }
 header{
-    position: absolute;
-    left: 0px;
-    right: 0px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
     padding: 0px 15px;
 }
 header .row{
@@ -33,32 +34,38 @@ header .navigation ul li{
     display: inline-block;
     margin-left: 40px;
 }
-header .navigation ul a{
+header .navigation ul li a{
     font-size: 20px;
     text-decoration: none;
     line-height: 80px;
-    color: white;
+    color: black;
+    display: block;
     font-weight: 600;
+    position: relative;
 }
-
-
+header .navigation ul li a::before{
+    content: '';
+    height: 3px;
+    background-color: white;
+    width: 0%;
+    position: absolute;
+    right: 0px;
+    bottom: -1px;
+    transition: all .5s ease;
+}
+header .navigation ul li a:hover::before{
+    width: 100%;
+    left:0;
+}
 header .brand-name a{
     text-decoration: none;
     font-size: 35px;
     font-weight: 800;
-    color:white;
+    color:black;
     text-transform: uppercase;
     position: relative;
 }
-header .brand-name a::before{
-    content: '';
-    height: 3px;
-    background-color: red;
-    width: 100%;
-    position: absolute;
-    left: 0px;
-    bottom: 0px;
-}
+
 .row{
     display: flex;
     flex-wrap: wrap;
@@ -68,3 +75,175 @@ header .brand-name a::before{
     margin: auto;
 }
 
+.home .full-screen {
+    min-height: 100vh;
+}
+
+.home .home-content{
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.home .home-content .block{
+    flex: 0 0 75%;
+    max-width: 75%;
+    padding-left: 25px;
+    border-left: 5px solid;
+    
+}
+.home .home-content .block h6{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+
+}
+.home .home-content .block h1{
+    color: white;
+    font-size: 60px;
+    font-weight: 600;
+    margin: 0;
+    padding: 0;
+    
+}
+.home .home-content .block h3{
+    color: white;
+    font-size: 25px;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+}
+
+.about-me{
+    padding: 100px;
+    background-color: white;
+}
+.about-me .section-title{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+}
+.about-me .section-title h1{
+    display: inline-block;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 600px;
+    margin: 0 0 10px;
+    position: relative;
+    padding-bottom: 5px;
+}
+.about-me .section-title h1::before{
+    content: '';
+    left: 0;
+    height: 2px;
+    right: 20%;
+    background-color: #febd01;
+    bottom: 0px;
+    position: absolute;
+}
+.about-me .section-title p.p{
+    display: block;
+    font-size:14px;
+    color: gray;
+    font-weight: 500;
+    text-transform: uppercase!important;
+    letter-spacing: 1.5px;
+}
+.about-me .about-content .img{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+.about-me .about-content .img img{
+    width: 90%;
+    display: block;
+}
+.about-me .about-content .text{
+    flex: 0 0 66.66%;
+    max-width: 66.66%;
+    padding-left: 40px;
+}
+.about-me .about-content .text h4{
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0 0 10px;
+}
+.about-me .about-content .text h6{
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 0 5px;
+}
+.about-me .about-content .text h6 span{
+    color: red;
+}
+.about-me .about-content .text p{
+    display: block;
+    font-size:14px;
+    color: gray;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    line-height: 24px;
+}
+.about-me .about-content .text .info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+.about-me .about-content .text .info .label-list{
+    flex: 0 0 calc(50% - 15px);
+    max-width: calc(50% - 15px);
+    margin-top: 10px;
+    border-bottom: 1px solid ;
+    padding: 5px;
+}
+.about-me .about-content .text .info .label-list label{
+    padding-right: 10px;
+    color: black;
+    font-weight: 600;
+    font-size: 20px;
+}
+.about-me .about-content .text .info .label-list p{
+    margin: 0;
+}
+
+
+/*------FOOTER---------*/
+footer{
+    padding: 10px 50px;
+    background-color: #0c0c17;
+}
+
+footer .logo{
+    flex: 0 0 100%;
+    max-width: 100%;
+    text-align: center;
+    font-size: 50px;
+    color: white;
+    font-weight: 800;
+}
+footer .socialmedia-link {
+    flex: 0 0 100%;
+    max-width: 100%;
+    font-size: 30px;
+    text-align: center;
+}
+footer .socialmedia-link a {
+    color: #999999;
+    display: inline-block;
+    text-decoration: none;
+    margin: 6px 10px;
+    transition: all .5s ease;
+}
+footer .socialmedia-link a:hover {
+    color: white;
+}
+footer .copyright {
+    color: #999999;
+    text-decoration: none;
+    margin: 6px 10px;
+    font-size: 14px;
+    padding-top: 50px;
+}
