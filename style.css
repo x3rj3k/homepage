@@ -6,21 +6,32 @@ body{
     margin: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
+
 .home{
     min-height: 100vh;
     background-image: url("1.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-
+    background-attachment: fixed;
 }
+
+/*------------HEADER-------------*/
+
 header{
-    position: fixed;
     top: 0;
     right: 0;
     left: 0;
     padding: 0px 15px;
+    border-bottom: 1px solid #999999;
+    z-index: 10;
+    position: absolute;
 }
+header.fixed {
+    background-color: rgb(246, 246, 246);
+    position: fixed;
+}
+
 header .row{
     justify-content: space-between;
     align-items: center;
@@ -46,7 +57,7 @@ header .navigation ul li a{
 header .navigation ul li a::before{
     content: '';
     height: 3px;
-    background-color: white;
+    background-color: black;
     width: 0%;
     position: absolute;
     right: 0px;
@@ -64,6 +75,12 @@ header .brand-name a{
     color:black;
     text-transform: uppercase;
     position: relative;
+}
+
+header .brand-name img{
+    height: 50px;
+    width: 50px;
+    float: left;
 }
 
 .row{
@@ -116,6 +133,44 @@ header .brand-name a{
     margin: 0;
     padding: 0;
 }
+
+/* .home .home-content .block h3:before{
+    content: ' try ko lang ';
+    animation: animate 8s infinite;
+}
+@keyframes animate{
+    0%{
+        font-size: 600%;
+        opacity: 1;
+    }
+    25%{
+        font-size: 570%;
+        opacity: 0;
+    }
+    50%{
+        font-size: 600%;
+        opacity: 1;
+    }
+    65%{
+        font-size: 570%;
+        opacity: 0;
+    }
+    80%{
+        font-size: 600%;
+        opacity: 1;
+        content: 'test rani';
+    }
+    90%{
+        font-size: 570%;
+        opacity: 0;
+    }
+    100%{
+        font-size: 600%;
+        opacity: 1;
+        content: 'congrats you won';
+    }
+} */
+/*--------------ABOUT ME------------*/
 
 .about-me{
     padding: 100px;
@@ -207,6 +262,211 @@ header .brand-name a{
 }
 .about-me .about-content .text .info .label-list p{
     margin: 0;
+}
+
+/*-------PORTFOLIO-----------*/
+.portfolio{
+    padding: 100px 15px;
+}
+.portfolio .section-title{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.portfolio .section-title h1{
+    display: inline-block;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 600px;
+    margin: 0 0 10px;
+    position: relative;
+    padding-bottom: 5px;
+}
+.portfolio .section-title h1::before{
+    content: '';
+    left: 0;
+    height: 2px;
+    right: 20%;
+    left: 20%;
+    background-color: #febd01;
+    bottom: 0px;
+    position: absolute;
+}
+
+.portfolio .portfolio-gallery {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.portfolio .portfolio-gallery .item{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    position: relative;
+}
+
+.portfolio .portfolio-gallery .item img{
+    width: 90%;
+    height: 90%;
+    display: block;
+}
+.portfolio .portfolio-gallery .item .overlay{
+    position: absolute;
+    height: 90%;
+    width: 90%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    z-index: 10;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all .5s ease;
+}
+.portfolio .portfolio-gallery .item:hover .overlay{
+    opacity: 1;
+}
+.portfolio .portfolio-gallery .item .overlay .fa{
+    height: 50px;
+    width: 50px;
+    background-color: #febd01;
+    color: white;
+    display: inline-block;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    
+}
+.portfolio .portfolio-gallery .item:hover .overlay .fa{
+    animation: galleryIcon .8s ease;
+}
+@keyframes galleryIcon {
+    0%{
+        transform: translateY(-20px);opacity:0;
+    }
+    100%{
+        transform: translateY(0);opacity:1;
+    }
+}
+.portfolio .portfolio-gallery .item .overlay h4{
+    color: white;
+    font-size: 25px;
+    font-weight: 700;
+    margin-top: 15px;
+    
+}
+.portfolio .portfolio-gallery .item:hover .overlay h4{
+    animation: galleryText .8s ease;
+}
+@keyframes galleryText{
+    0%{
+        transform: translateY(20px);opacity:0;
+    }
+    100%{
+        transform: translateY(0);opacity:1;
+    }
+}
+
+/*---------------zoom in image---------------*/
+
+.lightbox {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+.lightbox.show{
+    display: flex;
+}
+.lightbox.hide{
+    display: none;
+}
+.lightbox .close-lightbox{
+    height: 40px;
+    width: 40px;
+    background-color: white;
+    text-align: center;
+    line-height: 40px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 102;
+    color: #febd01;
+
+}
+.lightbox img{
+    max-width: 100%;
+    max-height: 100%;
+    display: block;
+}
+
+
+
+
+/*------GALLERY---------*/
+
+.images .my-gallery {
+    flex: 0 0 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: 50px;
+}
+
+.images .my-gallery .my-image{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+}
+
+.images .my-gallery .my-image img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+
+.section-gallery{
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.section-gallery h1{
+    display: inline-block;
+    font-size: 32px;
+    text-transform: uppercase;
+    font-weight: 600px;
+    margin: 0 0 10px;
+    position: relative;
+    padding-bottom: 5px;
+}
+.section-gallery h1::before{
+    content: '';
+    left: 20%;
+    height: 3px;
+    right: 20%;
+    background-color: #febd01;
+    bottom: 0px;
+    position: absolute;
 }
 
 
