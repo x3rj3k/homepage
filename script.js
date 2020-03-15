@@ -32,3 +32,8 @@ window.onscroll=function(){
     }
   }
 }
+
+const hamBurger= document.querySelector(".ham-burger");
+hamBurger.addEventListener("click",function(){
+  document.querySelector(".navigation").classList.toggle("show");
+})
